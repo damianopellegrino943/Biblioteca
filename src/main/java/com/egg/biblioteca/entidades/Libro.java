@@ -21,12 +21,9 @@ public class Libro {
     private Autor autor;
     @ManyToOne
     private Editorial editorial;
-    public Long getIsbn() {
-        return isbn;
-    }
-    public void setIsbn(UUID isbn2) {
-        this.isbn = isbn;
-    }
+
+    
+   
     public String getTitulo() {
         return titulo;
     }
@@ -59,8 +56,12 @@ public class Libro {
     }
     public Libro() {
     }
+    public Long getIsbn() {
+        return isbn;
+    }
+    public void setIsbn(Long isbn) {
+        this.isbn = isbn;
+    }
     
-
-
     
 }

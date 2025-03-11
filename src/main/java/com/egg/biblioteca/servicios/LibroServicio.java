@@ -31,23 +31,21 @@ private AutorRepositorio autorRepositorio;
 private EditorialRepositorio editorialRepositorio;
 
 @Transactional
-public void crearLibro(UUID isbn,String titulo,Integer ejemplares,UUID idAutor, UUID idEditorial){
-    Autor autor = autorRepositorio.findById(idAutor).get();
-    Editorial Editorial= editorialRepositorio.findById(idEditorial).get();
-    
-    Libro libro = new Libro();
+public void crearLibro(Long isbn, String titulo, Integer ejemplares, UUID idAutor, UUID idEditorial) throws MiException {
+    validar(isbn, titulo, ejemplares, idAutor, idEditorial);
+    Optional<Autor> respAutor = autorRepositorio.findById(idAutor);
+    Optional<Editorial> resEditorial = editorialRepositorio.findById(idEditorial);
 
+    if (respAutor.isPresent() && resEditorial.isPresent()){
+    Libro libro = new Libro();
     libro.setIsbn(isbn);
     libro.setTitulo(titulo);
     libro.setEjemplares(ejemplares);
-
-    libro.setAlta(new Date());
-
-    libro.setAutor(autor);
-    libro.setEditorial(Editorial);
-
+    libro.setAlta(new Date(0));
+    libro.setAutor(respAutor.get());
+    libro.setEditorial(resEditorial.get());
     libroRepositorio.save(libro);
-
+    }
 }
 
 //(readOnly = true)

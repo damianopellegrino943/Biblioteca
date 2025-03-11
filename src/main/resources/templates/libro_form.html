@@ -99,21 +99,26 @@
                     <input type="number" class="form-control" name="ejemplares" placeholder="Cantidad de Ejemplares">
                 </div>
                 
+             
                 <div class="form-group my-3">
+  <select name="idAutor">
+      <option>Seleccionar Autor</option>
+      <option th:each="autor : ${autores}"
+              th:value="${autor.id}"
+              th:text="${autor.nombre}"
+              >
+  </select>
 
-                    <select name="idAutor">
-
-                        <option>Seleccionar Autor</option>
-
-                        
-                    </select>
-                </div>
-                <div class="form-group my-3">
-                    <select name="idEditorial">  
-                        <option>Seleccionar Editorial</option>
-                       
-                    </select>
-                </div>
+  <select name="idEditorial">
+    <option value="">Seleccionar Editorial</option>
+    <option th:each="editorial : ${editoriales}" 
+            th:value="${editorial.id}" 
+            th:text="${editorial.nombre}">
+    </option>
+</select>
+</div>
+              
+                
 
                 <button type="submit" class="btn btn-primary mt-3 botones">Guardar</button>
             </form>

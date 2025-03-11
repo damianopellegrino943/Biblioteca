@@ -1,5 +1,7 @@
 package com.egg.biblioteca.servicios;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.egg.biblioteca.entidades.Autor;
+import com.egg.biblioteca.entidades.Editorial;
 import com.egg.biblioteca.repositorios.AutorRepositorio;
 import com.egg.excepciones.MiException;
 
@@ -43,5 +46,14 @@ public void crearAutor(String nombre) throws MiException {
         if (nombre.isEmpty() || nombre == null) {throw new MiException("el nombre no puede ser nulo o estar vacío");
       }
    }
+
+   
+    public List<Autor> listarAutores() {
+
+    List<Autor> autores = new ArrayList<>();
+
+    autores = autorRepositorio.findAll();
+    return autores;
+    }
     
 }
