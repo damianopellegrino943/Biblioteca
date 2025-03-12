@@ -8,6 +8,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.egg.biblioteca.entidades.Autor;
 import com.egg.biblioteca.entidades.Editorial;
 import com.egg.biblioteca.entidades.Libro;
 import com.egg.biblioteca.repositorios.EditorialRepositorio;
@@ -32,7 +33,6 @@ public void crearEditorial(String nombre) throws MiException{
 
     }
 
-//@Transactional(readOnly = true)
 public List<Editorial> listarEditoriales() {
 
     List<Editorial> editoriales = new ArrayList<>();
@@ -57,4 +57,5 @@ private void validar(String nombre) throws MiException {
  throw new MiException("el nombre no puede ser nulo o estar vacío");
       }
    }
+
 }

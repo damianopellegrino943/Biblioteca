@@ -43,8 +43,6 @@ public class AutorControlador {
 }
   @GetMapping("/lista")
     public String listar(ModelMap modelo) {
-
-
         List<Autor> autores = autorServicio.listarAutores();
         modelo.addAttribute("autores", autores);
         return "autor_list.html";
