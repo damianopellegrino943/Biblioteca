@@ -92,5 +92,11 @@ public List<Libro> listarLibros() {
       throw new MiException("El ID de la editorial no puede ser nulo o estar vacío.");
     }
   }
-    
+    public List<Editorial> listarEditoriales() {
+
+    List<Editorial> editoriales = new ArrayList<>();
+
+    editoriales = editorialRepositorio.findAll();
+    return editoriales;
+    }
 }

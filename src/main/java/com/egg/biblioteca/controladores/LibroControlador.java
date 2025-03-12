@@ -58,12 +58,14 @@ public class LibroControlador {
         return "index.html";
     }
 
-     @GetMapping("/lista")
-  public String listar(ModelMap modelo){
-    List<Libro> libros = libroServicio.listarLibros();
-    modelo.addAttribute("libros", libros);
-    return "libro_list.html";
-  }
+    @GetMapping("/lista")
+    public String listar(ModelMap modelo){
+      List<Libro> libros = libroServicio.listarLibros();
+      modelo.addAttribute("libros", libros);
+      return "libro_list.html";
+    }
+
+  
 
     
 
