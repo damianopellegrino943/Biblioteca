@@ -41,6 +41,11 @@ public List<Editorial> listarEditoriales() {
     return editoriales;
     }
 
+    public Editorial getOne(UUID id){
+      return editorialRepositorio.getOne(id);
+
+    }
+
      @Transactional
   public void modificarEditorial(String nombre, UUID id) throws MiException{
     validar(nombre);
