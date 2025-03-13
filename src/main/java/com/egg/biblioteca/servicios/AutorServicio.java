@@ -40,7 +40,10 @@ public void crearAutor(String nombre) throws MiException {
       throw new MiException("Error al modificar autor");
     }
   }
-    
+    public Autor getOne(UUID id){
+      return autorRepositorio.getOne(id);
+
+    }
 
     private void validar(String nombre) throws MiException {
         if (nombre.isEmpty() || nombre == null) {throw new MiException("el nombre no puede ser nulo o estar vacío");
